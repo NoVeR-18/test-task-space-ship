@@ -6,16 +6,15 @@ public class Asteroid : MonoBehaviour
 {
     [SerializeField]
     private float _speed;
+
     private Vector2 _speedMinMax = new Vector2(7, 13);
-
-
 
     void Start()
     {
         _speed = Mathf.Lerp(_speedMinMax.x, _speedMinMax.y, Difficulty.GetDifficultyPercent());
     }
 
-    // Update is called once per frame
+
     void Update()
     {
 

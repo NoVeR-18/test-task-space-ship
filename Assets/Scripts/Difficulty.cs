@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Difficulty : MonoBehaviour
 {
+
+    static float SecToMaxDiff = 60;
+    
     private static float _timer = 0;
+        
     private void OnDisable()
     {
         _timer = 0;
     }
+
     void Update()
     {
         _timer += Time.deltaTime;
@@ -16,6 +21,6 @@ public class Difficulty : MonoBehaviour
 
     public static float GetDifficultyPercent()
     {
-        return Mathf.Clamp01( _timer/ 60);
+        return Mathf.Clamp01( _timer/ SecToMaxDiff);
     }
 }

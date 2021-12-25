@@ -5,10 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _gameMenu;
-    [SerializeField]
-    private GameObject _loseMenu;
+
     private bool _onClick;
     private bool _moveOnStrat = false;
     private Vector2 screenHalfWidthInWorldUnits;
@@ -17,7 +14,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         screenHalfWidthInWorldUnits = new Vector2(Camera.main.aspect * Camera.main.orthographicSize, Camera.main.orthographicSize);
-        
     }
 
     void Update()
@@ -29,9 +25,7 @@ public class PlayerController : MonoBehaviour
             {
                 _moveOnStrat = false;
                 CoinController.CoinScore = 0;
-                _gameMenu.SetActive(true);
             }
-
         }
         if (_onClick)
         {
@@ -47,9 +41,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnButtonDown(float x)
+        
+    public void OnButtonDown()
     {
-        _inputX = x;
         _onClick = true;
     }
     public void OnButtonUp()
@@ -62,29 +56,8 @@ public class PlayerController : MonoBehaviour
         _moveOnStrat = true;
     }
 
-
-
-    void OnTriggerEnter2D(Collider2D triggerCollider)
+    public void InputChange(float x)
     {
-        if(triggerCollider.tag == "Coin")
-        {
-            CoinController.CoinScore += 1;
-            Destroy(triggerCollider.gameObject);
-        }
-        if (triggerCollider.tag == "Asteroid")
-        {
-            LoseMenuCall();
-        }
-    }
-    private void LoseMenuCall()
-    {
-        if (CoinController.CoinScore > PlayerPrefs.GetInt("Score"))
-        {
-            PlayerPrefs.SetInt("Score", CoinController.CoinScore);
-        }
-        _gameMenu.SetActive(false);
-        _inputX = 0;
-        _loseMenu.SetActive(true);
-        transform.position = new Vector3(0, 0, 0);
+        _inputX = x;
     }
 }

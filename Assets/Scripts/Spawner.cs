@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
         _screenHalfSizeWorldUnits = new Vector2(Camera.main.aspect * Camera.main.orthographicSize, Camera.main.orthographicSize);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Time.time > _nextSpawnTime)

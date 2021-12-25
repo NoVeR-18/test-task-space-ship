@@ -7,8 +7,10 @@ public class ScrollBackground : MonoBehaviour
 {
 
     public static float scrollSpeed;
+
     private Transform _curObject;
     private Vector2 _speedMinMax = new Vector2 (1.5f,8);
+
     void Start()
     {
         _curObject = GetComponent<Transform>();

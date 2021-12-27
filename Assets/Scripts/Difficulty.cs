@@ -23,4 +23,8 @@ public class Difficulty : MonoBehaviour
     {
         return Mathf.Clamp01( _timer/ SecToMaxDiff);
     }
+    public static void SetDifficulty(float SecToMax = 60)
+    {
+        SecToMaxDiff = SecToMax;
+    }
 }

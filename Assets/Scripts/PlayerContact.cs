@@ -13,7 +13,7 @@ public class PlayerContact : MonoBehaviour
     private AudioClip _coin;
     [SerializeField]
     private AudioClip _blowUp;
-    private new AudioSource _audio;
+    private AudioSource _audio;
 
     private PlayerController Player;
 

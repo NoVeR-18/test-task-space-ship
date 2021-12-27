@@ -35,6 +35,29 @@ public class Spawner : MonoBehaviour
             CoinSpawn();
         }
     }
+    public void SetDifficuylty(int i)
+    {
+        switch (i){
+            case 0:{
+                    Difficulty.SetDifficulty(180);
+                    _spawnSizleMinMax = new Vector2(0.3f, 1.0f);
+                    break; }
+            case 1:{
+                    Difficulty.SetDifficulty(120);
+                    _spawnSizleMinMax = new Vector2(0.3f, 1.4f);
+                    break; }
+            case 2:{
+                    Difficulty.SetDifficulty(60);
+                    _spawnSizleMinMax = new Vector2(0.3f, 1.8f);
+                    break; }
+            default:{
+                    Difficulty.SetDifficulty();
+                    _spawnSizleMinMax = new Vector2(0.3f, 1.8f);
+                    break;
+                }
+        }
+        Debug.Log(i);
+    }
     private void CoinSpawn()
     {
 
